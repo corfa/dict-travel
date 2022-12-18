@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>добавить тему</h1>
+<form th:method="POST" th:action="@{/create_topic}" th:object="${topic}">
+    <label for="name">Введи название новой темы: </label>
+    <input type="text" th:field="*{topicName}" id="name"/>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+
+</body>
+</html>

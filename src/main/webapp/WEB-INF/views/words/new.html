@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New person</title>
+</head>
+<body>
+<h1>добавить слово</h1>
+<form th:method="POST" th:action="@{/create_word}" th:object="${word}">
+  <label for="rus">Введи слова на русском: </label>
+  <input type="text" th:field="*{WordR}" id="rus"/>
+  <label for="eng">Введи перевод слова на английский: </label>
+  <input type="text" th:field="*{WordEnglish}" id="eng"/>
+  <label for="ger">Введи перевод слова на немецкий: </label>
+  <input type="text" th:field="*{WordGermany}" id="ger"/>
+  <label for="topic">Введи тему к которой относиться слово: </label>
+  <select class="form-control" id="topic" th:field="*{TopicId}">
+    <option value="0">Темы</option>
+    <option th:each="topic : ${topics}" th:value="${topic.getId()}" th:text="${topic.getNameTopic()}"></option>
+  </select>
+  <!--  <input type="text" th:field="*{Topic}" id="topic"/>-->
+  <br/>
+  <input type="submit" value="Create!"/>
+</form>
+
+
+
+</body>
+</html>
